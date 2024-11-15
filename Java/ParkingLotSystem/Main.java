@@ -18,8 +18,12 @@ public class Main {
         List<ParkingSpot> carSpots = new ArrayList<>();
 
         // Add spots with increasing distances
-        for (int i = 0; i < 10; i++) bikeSpots.add(new ParkingSpot("B" + i, VehicleType.BIKE, i + 1));
-        for (int i = 0; i < 10; i++) carSpots.add(new ParkingSpot("C" + i, VehicleType.CAR, i + 1));
+        for (int i = 0; i < 10; i++){
+            bikeSpots.add(new ParkingSpot("B" + i, VehicleType.BIKE, i + 1));
+        }
+        for (int i = 10; i < 20; i++){
+            carSpots.add(new ParkingSpot("C" + i, VehicleType.CAR, i + 1));
+        }
 
         // Map the spots by size
         Map<VehicleType, List<ParkingSpot>> parkingSpots = new HashMap<>();
@@ -39,8 +43,14 @@ public class Main {
         Ticket ticket3 = manager.parkVehicle(car2);  // Should get next closest medium spot
 
         // Checkout vehicles
-        manager.checkoutVehicle(ticket1);
-        manager.checkoutVehicle(ticket2);
-        manager.checkoutVehicle(ticket3);
+        if (ticket1 != null) {
+            manager.checkoutVehicle(ticket1);
+        }
+        if (ticket2 != null) {
+            manager.checkoutVehicle(ticket2);
+        }
+        if (ticket3 != null) {
+            manager.checkoutVehicle(ticket3);
+        }
     }
 }

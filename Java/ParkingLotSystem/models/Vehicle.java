@@ -10,4 +10,8 @@ public class Vehicle {
     public VehicleType getType(){
         return type;
     }
+
+    public String getVehicleNumber() {
+        return vehicleNumber;
+    }
 }
